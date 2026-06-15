@@ -1,0 +1,88 @@
+use EmployeeDB
+
+db.createCollection("employees")
+
+db.employees.insertOne({...})
+
+db.employees.insertMany([...])
+
+db.employees.find()
+
+db.employees.findOne({...})
+
+db.employees.find({salary:{$gt:35000}})
+
+db.employees.updateOne(...)
+
+db.employees.updateMany(...)
+
+db.employees.deleteOne(...)
+
+db.employees.deleteMany(...)
+
+db.employees.find().sort({salary:1})
+
+db.employees.countDocuments()
+
+//EXAMPLE FOR THIS ONE 
+
+use EmployeeDB
+
+db.createCollection("employees")
+
+db.employees.insertOne({
+    empId: 101,
+    name: "Rahul",
+    age: 22,
+    department: "IT",
+    salary: 30000
+})
+
+db.employees.insertMany([
+{
+    empId: 102,
+    name: "Priya",
+    age: 25,
+    department: "HR",
+    salary: 35000
+},
+{
+    empId: 103,
+    name: "Arun",
+    age: 28,
+    department: "IT",
+    salary: 45000
+},
+{
+    empId: 104,
+    name: "Sneha",
+    age: 24,
+    department: "Finance",
+    salary: 40000
+}
+])
+
+db.employees.find()
+db.employees.findOne({empId:101})
+db.employees.find({salary:{$gt:35000}})
+
+db.employees.updateOne(
+    {empId:101},
+    {$set:{salary:35000}}
+)
+
+db.employees.updateMany(
+    {department:"IT"},
+    {$set:{status:"Active"}}
+)
+
+db.employees.find().sort({salary:1})
+db.employees.find().sort({salary:-1})
+
+db.employees.countDocuments()
+db.employees.countDocuments({department:"IT"})
+
+db.employees.deleteOne({empId:104})
+db.employees.deleteMany({department:"IT"})
+
+db.employees.find()

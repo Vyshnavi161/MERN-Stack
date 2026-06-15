@@ -1,0 +1,30 @@
+# MongoDB Practice
+
+## Topics Covered
+- MongoDB Shell
+- MongoDB Compass
+- MongoDB Atlas
+- Collections
+- CRUD Operations
+- Query Operators
+- Sorting
+- Count Documents
+
+## Commands Practiced
+1. use
+2. createCollection()
+3. insertOne()
+4. insertMany()
+5. find()
+6. findOne()
+7. $gt
+8. $set
+9. updateOne()
+10. updateMany()
+11. deleteOne()
+12. deleteMany()
+13. sort()
+14. countDocuments()
+
+## Practice Project
+Employee Database Management using MongoDB
