@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Loan Approval System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Bank Loan Approval System</h1>
+
+    <input type="text" id="name" placeholder="Applicant Name">
+
+    <select id="type">
+        <option value="">Select Type</option>
+        <option value="Student">Student</option>
+        <option value="Employee">Employee</option>
+    </select>
+
+    <input type="number" id="marks" placeholder="Marks (For Students)">
+
+    <input type="number" id="income" placeholder="Income (For Employees)">
+
+    <button onclick="applyLoan()">Apply Loan</button>
+
+    <input
+type="text"
+id="search"
+placeholder="Search Applicant..."
+onkeyup="searchApplication()">
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Marks</th>
+                <th>Income</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody id="loanTable">
+
+        </tbody>
+    </table>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+//api call using fetch() method
+fetch("https://jsonplaceholder.typicode.com/users/1")
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.log(error));
+
