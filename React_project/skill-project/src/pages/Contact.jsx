@@ -1,11 +1,10 @@
 import { useState } from "react";
 
 function Contact() {
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
   function handleSubmit(e) {
@@ -16,17 +15,16 @@ function Contact() {
     setFormData({
       name: "",
       email: "",
-      message: ""
+      message: "",
     });
   }
 
   return (
-    <div className="page-container">
-
+  <div className="form-container">
+    <div className="form-card">
       <h1>Contact Us</h1>
 
       <form onSubmit={handleSubmit}>
-
         <input
           type="text"
           placeholder="Enter Name"
@@ -34,12 +32,10 @@ function Contact() {
           onChange={(e) =>
             setFormData({
               ...formData,
-              name: e.target.value
+              name: e.target.value,
             })
           }
         />
-
-        <br /><br />
 
         <input
           type="email"
@@ -48,35 +44,30 @@ function Contact() {
           onChange={(e) =>
             setFormData({
               ...formData,
-              email: e.target.value
+              email: e.target.value,
             })
           }
         />
 
-        <br /><br />
-
         <textarea
-          placeholder="Enter Message"
           rows="5"
+          placeholder="Enter Message"
           value={formData.message}
           onChange={(e) =>
             setFormData({
               ...formData,
-              message: e.target.value
+              message: e.target.value,
             })
           }
         />
 
-        <br /><br />
-
         <button type="submit">
           Send Message
         </button>
-
       </form>
-
     </div>
-  );
+  </div>
+);
 }
 
 export default Contact;

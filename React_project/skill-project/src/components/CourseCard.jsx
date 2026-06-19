@@ -2,8 +2,42 @@ import { useState } from "react";
 
 function CourseCard({ title, students }) {
   const [favorite, setFavorite] = useState(false);
-  const [enrolled, setEnrolled] = useState(false);
+  const currentUser = JSON.parse(
+  localStorage.getItem("currentUser")
+);
 
+const enrolledCourses = JSON.parse(
+  localStorage.getItem("enrolledCourses")
+) || [];
+
+const isEnrolled = enrolledCourses.some(
+  (course) =>
+    course.title === title &&
+    course.user === currentUser?.email
+);
+const handleEnroll = () => {
+  if (!currentUser) {
+    alert("Please login first");
+    return;
+  }
+
+  const updatedCourses = [
+    ...enrolledCourses,
+    {
+      title,
+      students,
+      user: currentUser.email,
+      progress: 0,
+    },
+  ];
+
+  localStorage.setItem(
+    "enrolledCourses",
+    JSON.stringify(updatedCourses)
+  );
+
+  window.location.reload();
+};
   return (
     <div className="card">
       <h2>{title}</h2>
@@ -14,17 +48,12 @@ function CourseCard({ title, students }) {
 
       <p>Students : {students}</p>
 
-      <p>Progress : 60%</p>
-      <progress value="60" max="100"></progress>
-
-      <br /><br />
-
       <button
-        onClick={() => setEnrolled(true)}
-        disabled={enrolled}
-      >
-        {enrolled ? "Enrolled ✅" : "Enroll Now"}
-      </button>
+  onClick={handleEnroll}
+  disabled={isEnrolled}
+>
+  {isEnrolled ? "Enrolled ✅" : "Enroll Now"}
+</button>
     </div>
   );
 }
